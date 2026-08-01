@@ -1,0 +1,221 @@
+@import "tailwindcss";
+
+@theme {
+  /* Display face for headings — heavy, rounded, geometric. Body face is a soft rounded sans. */
+  --font-sans: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Baloo 2', 'Nunito', system-ui, sans-serif;
+
+  /* Core surfaces: warm paper-gray canvas, charcoal ink, amber highlight. */
+  --color-canvas: #e9e8e4;
+  --color-canvas-alt: #f2f1ee;
+  --color-paper: #fbfaf8;
+  --color-ink: #2c2c2a;
+  --color-ink-soft: #6b6b66;
+  --color-brand: #f2b33d;
+  --color-brand-deep: #e0a028;
+
+  /*
+   * The existing components are written against the emerald/teal ramps. Rather than
+   * rewriting ~134 call sites, the ramps themselves are redefined: the light end
+   * becomes the amber highlight, the dark end becomes charcoal. That keeps every
+   * `bg-emerald-600 text-white` pairing legible while restyling the whole site.
+   */
+  --color-emerald-50: #fdf7ea;
+  --color-emerald-100: #faecc9;
+  --color-emerald-200: #f6dd9c;
+  --color-emerald-300: #f4ce74;
+  --color-emerald-400: #f2b33d;
+  --color-emerald-500: #e0a028;
+  --color-emerald-600: #33322f;
+  --color-emerald-700: #292825;
+  --color-emerald-800: #1f1e1c;
+  --color-emerald-900: #171614;
+
+  --color-teal-50: #fdf7ea;
+  --color-teal-100: #faecc9;
+  --color-teal-200: #f6dd9c;
+  --color-teal-300: #f4ce74;
+  --color-teal-400: #f2b33d;
+  --color-teal-500: #e0a028;
+  --color-teal-600: #33322f;
+  --color-teal-700: #292825;
+  --color-teal-800: #1f1e1c;
+  --color-teal-900: #171614;
+
+  /* Neutrals warmed up so they sit against the paper-gray canvas instead of blue-white. */
+  --color-slate-50: #f5f4f1;
+  --color-slate-100: #ebeae6;
+  --color-slate-200: #dddbd5;
+  --color-slate-300: #c6c4bc;
+  --color-slate-400: #9d9b93;
+  --color-slate-500: #7b7972;
+  --color-slate-600: #5d5b55;
+  --color-slate-700: #464440;
+  --color-slate-800: #333230;
+  --color-slate-900: #2c2c2a;
+  --color-slate-950: #1a1a18;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    background-color: var(--color-canvas);
+  }
+
+  /* Headings carry the display face by default so section titles need no extra class. */
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Heavy rounded display type, as used for the hero wordmark and section titles. */
+@utility font-display {
+  font-family: var(--font-display);
+}
+
+/* The amber marker-pen bar that sits behind a highlighted word. */
+@utility hl-pill {
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+  padding-inline: 0.35em;
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 0.12em -0.05em 0.1em;
+    background: var(--color-brand);
+    border-radius: 9999px;
+  }
+}
+
+/* Thin outlined ring used as a decorative backdrop behind hero imagery. */
+@utility doodle-ring {
+  border: 1.5px solid color-mix(in srgb, var(--color-ink) 22%, transparent);
+  border-radius: 9999px;
+}
+
+/* Oversized ghosted numeral ("01") bled into a section corner. */
+@utility ghost-numeral {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 0.72;
+  color: color-mix(in srgb, var(--color-ink) 7%, transparent);
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Vertical poster marquees in the hero side panel. The track is rendered twice,
+   so translating by -50% loops seamlessly. */
+@keyframes hero-scroll-up {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+@keyframes hero-scroll-down {
+  from { transform: translateY(-50%); }
+  to { transform: translateY(0); }
+}
+
+@utility hero-track-up {
+  animation: hero-scroll-up 48s linear infinite;
+}
+@utility hero-track-down {
+  animation: hero-scroll-down 56s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-track-up,
+  .hero-track-down {
+    animation: none;
+  }
+}
+
+/* ---- Splash intro ---- */
+@keyframes splash-mark-in {
+  from { opacity: 0; transform: scale(0.82) rotate(-10deg); }
+  60%  { opacity: 1; }
+  to   { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+@keyframes splash-letter-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes splash-rule-in {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+@keyframes splash-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+/* Horizontal channel-logo walls. Track is duplicated, so -50% loops seamlessly. */
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+@utility marquee-left {
+  animation: marquee-left var(--marquee-duration, 60s) linear infinite;
+}
+@utility marquee-right {
+  animation: marquee-right var(--marquee-duration, 60s) linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-left,
+  .marquee-right {
+    animation: none;
+  }
+}
+
+/* Hide the scrollbar on horizontal filter/carousel strips */
+@utility scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Slim scrollbar for panels that scroll inside the page */
+@utility scrollbar-slim {
+  scrollbar-width: thin;
+  scrollbar-color: #c6c4bc transparent;
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #c6c4bc;
+    border-radius: 9999px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: #9d9b93;
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-canvas-alt);
+}
+::-webkit-scrollbar-thumb {
+  background: #c6c4bc;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9d9b93;
+}

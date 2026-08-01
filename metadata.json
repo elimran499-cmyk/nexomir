@@ -1,0 +1,6 @@
+{
+  "name": "StreamNL Pro",
+  "description": "Premium IPTV streaming service for the Netherlands with 4K channels, live sports, and VOD.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

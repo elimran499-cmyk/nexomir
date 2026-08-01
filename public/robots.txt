@@ -1,0 +1,5 @@
+# Nexomir — https://nexomir.app
+User-agent: *
+Allow: /
+
+Sitemap: https://nexomir.app/sitemap.xml
