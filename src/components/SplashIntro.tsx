@@ -92,7 +92,7 @@ export const SplashIntro: React.FC = () => {
       />
 
       <span
-        className="text-[10px] font-bold tracking-[0.28em] uppercase text-white/50"
+        className="font-display text-[11px] font-extrabold tracking-[0.28em] uppercase text-white/50"
         style={{ animation: 'splash-letter-in 420ms ease-out both', animationDelay: '900ms' }}
       >
         Premium 4K IPTV

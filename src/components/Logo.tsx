@@ -57,7 +57,7 @@ export const Logo: React.FC<LogoProps> = ({ inverted = false, className = '' }) 
         Nexomir<span className="text-brand">.</span>
       </span>
       <span
-        className={`block text-[10px] font-bold tracking-[0.18em] uppercase mt-0.5 ${
+        className={`block font-display text-[11px] font-extrabold tracking-[0.2em] uppercase mt-1 ${
           inverted ? 'text-white/60' : 'text-ink-soft'
         }`}
       >

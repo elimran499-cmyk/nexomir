@@ -40,11 +40,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCheckoutModal }) => {
             </h4>
             <ul className="space-y-2 text-sm text-slate-400">
               <li>
-                <a href="#kenmerken" className="hover:text-emerald-400 transition-colors">
-                  Waarom Nexomir
-                </a>
-              </li>
-              <li>
                 <a href="#kanalen" className="hover:text-emerald-400 transition-colors">
                   Zenderaanbod & Sport
                 </a>
@@ -52,6 +47,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCheckoutModal }) => {
               <li>
                 <a href="#prijzen" className="hover:text-emerald-400 transition-colors">
                   Pakketten & Tarieven
+                </a>
+              </li>
+              <li>
+                <a href="#kenmerken" className="hover:text-emerald-400 transition-colors">
+                  Waarom Nexomir
                 </a>
               </li>
               <li>

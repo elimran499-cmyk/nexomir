@@ -41,6 +41,9 @@ export default function App() {
         {/* Films & Series VOD Library */}
         <FilmsSeries onOpenCheckoutModal={() => handleViewPlans()} />
 
+        {/* Pricing Cards */}
+        <Pricing onOpenCheckoutModal={handleViewPlans} />
+
         {/* Features Grid */}
         <Features />
 
@@ -49,9 +52,6 @@ export default function App() {
 
         {/* Device Compatibility & App Setup */}
         <DeviceCompatibility />
-
-        {/* Pricing Cards */}
-        <Pricing onOpenCheckoutModal={handleViewPlans} />
 
         {/* 3-Step Simple Setup */}
         <SetupSteps onOpenCheckoutModal={() => handleViewPlans()} />

@@ -48,13 +48,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCheckoutModal }) => {
           {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center space-x-1 lg:space-x-2">
             <button
-              onClick={() => scrollToSection('kenmerken')}
-              className="px-3.5 py-2 text-sm font-semibold text-slate-600 hover:text-emerald-600 hover:bg-slate-50 rounded-lg transition-colors"
-              id="nav-link-kenmerken"
-            >
-              Kenmerken
-            </button>
-            <button
               onClick={() => scrollToSection('kanalen')}
               className="px-3.5 py-2 text-sm font-semibold text-slate-600 hover:text-emerald-600 hover:bg-slate-50 rounded-lg transition-colors"
               id="nav-link-kanalen"
@@ -74,6 +67,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCheckoutModal }) => {
               id="nav-link-prijzen"
             >
               Prijzen
+            </button>
+            <button
+              onClick={() => scrollToSection('kenmerken')}
+              className="px-3.5 py-2 text-sm font-semibold text-slate-600 hover:text-emerald-600 hover:bg-slate-50 rounded-lg transition-colors"
+              id="nav-link-kenmerken"
+            >
+              Kenmerken
             </button>
             <button
               onClick={() => scrollToSection('handleiding')}
