@@ -137,6 +137,7 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenCheckoutModal }) => {
 
                 {/* Order — opens WhatsApp with the chosen options prefilled */}
                 <a
+                  data-cta="order"
                   href={orderLink({
                     packageName: tier.name,
                     duration: duration.label,
