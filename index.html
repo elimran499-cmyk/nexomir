@@ -38,8 +38,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nexomir | Premium IPTV Nederland - 4K TV & Live Sport</title>
-    <!-- Nexomir mark: amber hexagon, N letterform, fast-forward chevrons -->
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232c2c2a'/%3E%3Cpath d='M32 8.5 52 20.25v23.5L32 55.5 12 43.75v-23.5L32 8.5Z' fill='none' stroke='%23f2b33d' stroke-width='3.4' stroke-linejoin='round'/%3E%3Cpath d='M21 44V20h6l10 15V20h6v24h-6L27 30v14h-6Z' fill='%23ffffff'/%3E%3Cpath d='M26.4 27.6 32.4 32.5l-6 4.9V27.6Z' fill='%23f2b33d'/%3E%3Cpath d='M32.6 27.6 38.6 32.5l-6 4.9V27.6Z' fill='%23f2b33d'/%3E%3C/svg%3E" />
+    <!-- Nexomir mark: amber hexagon, N letterform, fast-forward chevrons.
+         Real PNG/ICO files rather than an inline data: URI, which Google
+         cannot crawl, so the logo shows next to the site in search results. -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#2c2c2a" />
 
     <meta name="description" content="Nexomir IPTV — 80.000+ live zenders en 200.000+ films &amp; series in 4K op al je apparaten. Nederlandse zenders, Viaplay, Ziggo Sport en ESPN. Direct actief, zonder contract." />
@@ -81,7 +85,15 @@
           "name": "Nexomir",
           "alternateName": ["Nexomir IPTV", "NexomirIPTV", "Nexomir TV", "NexomirTV"],
           "url": "https://nexomir.app/",
-          "logo": "https://nexomir.app/og-image.png",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://nexomir.app/logo.png",
+            "contentUrl": "https://nexomir.app/logo.png",
+            "width": 512,
+            "height": 512,
+            "caption": "Nexomir logo"
+          },
+          "image": "https://nexomir.app/logo.png",
           "description": "Nexomir IPTV levert 80.000+ live zenders en 200.000+ films en series in 4K voor Nederland en België.",
           "areaServed": ["NL", "BE"],
           "contactPoint": {

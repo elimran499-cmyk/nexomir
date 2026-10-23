@@ -44,10 +44,20 @@ interface LogoProps {
   className?: string;
 }
 
-/** Mark plus wordmark, used in the header and footer. */
+/**
+ * Mark plus wordmark, used in the header and footer. The mark here is the PNG
+ * render of LogoMark (public/nexomir-logo*.png), so search engines can index
+ * the logo as an image; the splash intro keeps the SVG for its animation.
+ */
 export const Logo: React.FC<LogoProps> = ({ inverted = false, className = '' }) => (
   <span className={`flex items-center gap-2.5 ${className}`}>
-    <LogoMark inverted={inverted} className="w-10 h-10 shrink-0" />
+    <img
+      src={inverted ? '/nexomir-logo-white.png' : '/nexomir-logo.png'}
+      alt="Nexomir logo"
+      width={40}
+      height={40}
+      className="w-10 h-10 shrink-0"
+    />
     <span className="leading-none">
       <span
         className={`block font-display font-extrabold text-xl tracking-tight ${
